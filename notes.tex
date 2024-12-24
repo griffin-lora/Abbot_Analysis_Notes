@@ -34,7 +34,7 @@
 
 \section{Sequences and Series}
 \begin{definition}
-    If $(a_n)_n$ is a sequence then $\lim_{n\to \infty} a_n = L$ iff $\forall\varepsilon > 0$ $\exists N \in \mathbb{N}$ such that if $n \in \mathbb{N}$ where $n \geq N$ then $|a_n - L| < \varepsilon$
+    If $(a_n)_n$ is a sequence then $\lim_{n\to \infty} a_n = L$ iff $\forall\varepsilon > 0$, $\exists N \in \mathbb{N}$ such that if $n \in \mathbb{N}$ where $n \geq N$ then $|a_n - L| < \varepsilon$
 \end{definition}
 \begin{definition}
     If $a \in \mathbb{R}$, then the $\varepsilon$-neighborhood of $a$ is $V_\varepsilon(a) = \{ x \in \mathbb{R} : |x - a| < \varepsilon \}$
@@ -75,8 +75,52 @@
     If \[
         (a_n)_n = \left(1, -\frac{1}{2}, \frac{1}{3}, -\frac{1}{4}, \frac{1}{5}, -\frac{1}{5}, \frac{1}{5}, \ldots\right)
     \]
-    then $(a_n)_n$ is divergent.
+    then $(a_n)_n$ does not converge to $0$.
 \end{lemma}
+\begin{proof}
+    Let $\varepsilon = \frac{1}{5}$, then consider all $N \in \mathbb{N}$ and consider $n = N$. Then notice that for $|a_n - L| = |a_n|$ must be greater or equal to than $\frac{1}{5}$, therefore $|a_n - L| \geq \frac{1}{5}$.
+\end{proof}
+
+\begin{definition}
+    Let $x \mapsto \lfloor x \rfloor$ where $\lfloor x \rfloor \in \mathbb{Z}$ be the greatest value that satisfies $\lfloor x \rfloor \leq x$.
+\end{definition}
+
+\begin{lemma}
+    If $a_n = \left\lfloor\frac{1}{n}\right\rfloor$, $n \geq 1$, then $\lim_{n\to\infty} a_n = 0$
+\end{lemma}
+\begin{proof}
+    Consider that if $n > 1$ then $\frac{1}{n} < 1$ so $\left\lfloor\frac{1}{n}\right\rfloor = 0$. \\
+    For all $\varepsilon > 0$, let $N = 2$. Now consider all $n \in \mathbb{N}$ such that $n \geq N$ then $n > 1$ so therefore $\left\lfloor\frac{1}{n}\right\rfloor = 0$. Consider that
+    \begin{align*}
+        |a_n - L| = \left|\left\lfloor\frac{1}{n}\right\rfloor\right| = |0| < \varepsilon
+    \end{align*}
+\end{proof}
+
+\begin{definition}
+    A sequence $(a_n)_n$ converges to infinity iff $\forall M > 0$, $\exists N \in \mathbb{N}$ where $N > 0$ such that if $n \in \mathbb{N}$ where $n \geq N$ then $a_n > M$.
+\end{definition}
+
+\begin{lemma}
+    If $a_n = \sqrt{n}$, then $(a_n)_n$ converges to infinity.
+\end{lemma}
+\begin{proof}
+    Consider all $M > 0$ and let $N \in \mathbb{N}$ such that $N > M^2$ so $\sqrt{N} > M$.
+    Now consider all $n \in \mathbb{N}$ such that $n \geq N$ so
+    \begin{align*}
+        a_n
+        &= \sqrt{n}
+        \geq \sqrt{N}
+        > M
+    \end{align*}
+\end{proof}
+
+\begin{definition}
+    A sequence $(a_n)_n$ is bounded iff $\exists M > 0$ such that $\forall n \in \mathbb{N}$ that $|a_n| \leq M$
+\end{definition}
+
+\begin{theorem}
+    If $(a_n)_n$ is a convergent sequence, then $(a_n)_n$ is bounded.
+\end{theorem}
 
 \end{flushleft}
 \end{document}
