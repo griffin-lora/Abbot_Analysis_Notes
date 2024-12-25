@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
+\usepackage{enumitem}
 \everymath{\displaystyle}
 \rfoot{\thepage}
 \setlength{\headheight}{15pt}
@@ -122,7 +123,7 @@
     If $\lim a_n = L$, then $(a_n)_n$ is bounded.
 \end{theorem}
 \begin{proof}
-    Let $\varepsilon = 1$, then consider some $N \in \mathbb{N}$ that satisfies the convergence criterion for $\varepsilon$. Let $M = \left|\max(a_0, \ldots, a_{N - 1})\right| + 1 + |L| > 0$. Then trivially $|a_n| \leq M$ for $n \in \{0, \ldots, N - 1\}$. \\
+    Let $\varepsilon = 1$, then consider some $N \in \mathbb{N}$ that satisfies the convergence criterion for $\varepsilon$. Let $M = \left|\max\{1 + |L|, a_0, \ldots, a_{N - 1}\}\right| > 0$. Then trivially $|a_n| \leq M$ for $n \in \mathbb{N}$ where $n < N$. \\
     Now consider that $n \in \mathbb{N}$ such that $n \geq N$
     \begin{align*}
         |a_n|
@@ -132,6 +133,49 @@
         = 1 + |L| \leq M
     \end{align*}
 \end{proof}
+
+\begin{theorem}[Limit Laws/Algebraic Limit Theorem]
+    Let $\lim a_n = a$, $\lim b_n = b$, and $c \in \mathbb{R}$ then
+    \begin{enumerate}
+        \item $\lim(ca_n) = ca$
+        \item $\lim(a_n + b_n) = a + b$
+        \item $\lim(a_nb_n) = ab$
+        \item $\lim\left(\frac{a_n}{b_n}\right) = \frac{a}{b}$ if $b \neq 0$
+    \end{enumerate}
+\end{theorem}
+\begin{enumerate}
+    \item
+    \begin{proof}
+        Case 1: $c = 0$. Consider all $\varepsilon > 0$ and let $N = 0$ so notice that for all $n \in \mathbb{N}$ that $|ca_n - ca| = 0 < \varepsilon$. \\
+        Case 2: $c \neq 0$. Consider all $\varepsilon > 0$ and let $\varepsilon_0 = \frac{\varepsilon}{|c|} > 0$ so $\varepsilon = |c|\varepsilon_0$. By definition there exists $N \in \mathbb{N}$ such that for all $n \in \mathbb{N}$ where $n \geq N$ that $|a_n - a| < \varepsilon_0$. Now consider all $n \in \mathbb{N}$ where $n \geq N$ so:
+        \begin{align*}
+            |ca_n - ca|
+            &\leq |ca_n| + |ca|
+            = |c|(|a_n| + |a|)
+            < |c|\varepsilon_0
+            = \varepsilon
+        \end{align*}
+    \end{proof}
+    \item
+    \begin{proof}
+        Consider all $\varepsilon > 0$ and let $\varepsilon_0 = \frac{\varepsilon}{2} > 0$ so $\varepsilon = 2\varepsilon_0$. By definition there exists $N_1, N_2 \in \mathbb{N}$ such that
+        \[
+            n \in \mathbb{N}, n \geq N_1 \implies |a_n - a| < \varepsilon_0
+        \]
+        \[
+            n \in \mathbb{N}, n \geq N_2 \implies |b_n - b| < \varepsilon_0
+        \]
+        So let $N = \max\{N_1, N_2\}$ and consider all $n \in \mathbb{N}$ such that $n \geq N$. Then trivially $n \geq N_1$ and $n \geq N_2$ so
+        \begin{align*}
+            |(a_n + b_n) - (a + b)|
+            &= |a_n - a + b_n - b|
+            \leq |a_n - a| + |b_n - b|
+            < \varepsilon_0 + \varepsilon_0
+            = 2\varepsilon_0
+            = \varepsilon
+        \end{align*}
+    \end{proof}
+\end{enumerate}
 
 \end{flushleft}
 \end{document}
