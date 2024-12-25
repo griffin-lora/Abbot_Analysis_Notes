@@ -34,13 +34,13 @@
 
 \section{Sequences and Series}
 \begin{definition}
-    If $(a_n)_n$ is a sequence then $\lim_{n\to \infty} a_n = L$ iff $\forall\varepsilon > 0$, $\exists N \in \mathbb{N}$ such that if $n \in \mathbb{N}$ where $n \geq N$ then $|a_n - L| < \varepsilon$
+    If $(a_n)_n$ is a sequence then $\lim a_n = L$ iff $\forall\varepsilon > 0$, $\exists N \in \mathbb{N}$ such that if $n \in \mathbb{N}$ where $n \geq N$ then $|a_n - L| < \varepsilon$
 \end{definition}
 \begin{definition}
     If $a \in \mathbb{R}$, then the $\varepsilon$-neighborhood of $a$ is $V_\varepsilon(a) = \{ x \in \mathbb{R} : |x - a| < \varepsilon \}$
 \end{definition}
 \begin{lemma}
-    If $a_n = \frac{1}{\sqrt{n}}$, then $\lim_{n\to\infty} a_n = 0$.
+    If $a_n = \frac{1}{\sqrt{n}}$, then $\lim a_n = 0$.
 \end{lemma}
 \begin{proof}
     Let $N \in \mathbb{N}$ such that $N > \frac{1}{\varepsilon^2}$, then
@@ -53,7 +53,7 @@
     \end{align*}
 \end{proof}
 \begin{lemma}
-    If $a_n = \frac{n + 1}{n}$, then $\lim_{n\to\infty} a_n = 1$.
+    If $a_n = \frac{n + 1}{n}$, then $\lim a_n = 1$.
 \end{lemma}
 \begin{proof}
     Let $N \in \mathbb{N}$ such that $N > \frac{1}{\varepsilon}$, then
@@ -86,7 +86,7 @@
 \end{definition}
 
 \begin{lemma}
-    If $a_n = \left\lfloor\frac{1}{n}\right\rfloor$, $n \geq 1$, then $\lim_{n\to\infty} a_n = 0$
+    If $a_n = \left\lfloor\frac{1}{n}\right\rfloor$, $n \geq 1$, then $\lim a_n = 0$
 \end{lemma}
 \begin{proof}
     Consider that if $n > 1$ then $\frac{1}{n} < 1$ so $\left\lfloor\frac{1}{n}\right\rfloor = 0$. \\
@@ -119,8 +119,19 @@
 \end{definition}
 
 \begin{theorem}
-    If $(a_n)_n$ is a convergent sequence, then $(a_n)_n$ is bounded.
+    If $\lim a_n = L$, then $(a_n)_n$ is bounded.
 \end{theorem}
+\begin{proof}
+    Let $\varepsilon = 1$, then consider some $N \in \mathbb{N}$ that satisfies the convergence criterion for $\varepsilon$. Let $M = \left|\max(a_0, \ldots, a_{N - 1})\right| + 1 + |L| > 0$. Then trivially $|a_n| \leq M$ for $n \in \{0, \ldots, N - 1\}$. \\
+    Now consider that $n \in \mathbb{N}$ such that $n \geq N$
+    \begin{align*}
+        |a_n|
+        &= |a_n - L + L|
+        \leq |a_n - L| + |L|
+        < \varepsilon + |L|
+        = 1 + |L| \leq M
+    \end{align*}
+\end{proof}
 
 \end{flushleft}
 \end{document}
