@@ -134,13 +134,12 @@
     \end{align*}
 \end{proof}
 
-\begin{theorem}[Limit Laws/Algebraic Limit Theorem]
+\begin{theorem}[Algebraic Limit Theorem]
     Let $\lim a_n = a$, $\lim b_n = b$, and $c \in \mathbb{R}$ then
     \begin{enumerate}
         \item $\lim(ca_n) = ca$
         \item $\lim(a_n + b_n) = a + b$
         \item $\lim(a_nb_n) = ab$
-        \item $\lim\left(\frac{a_n}{b_n}\right) = \frac{a}{b}$ if $b \neq 0$
     \end{enumerate}
 \end{theorem}
 \begin{enumerate}
@@ -172,6 +171,34 @@
             \leq |a_n - a| + |b_n - b|
             < \varepsilon_0 + \varepsilon_0
             = 2\varepsilon_0
+            = \varepsilon
+        \end{align*}
+    \end{proof}
+    \item
+    \begin{proof}
+        Consider all $\varepsilon > 0$ and let
+        \[
+            \varepsilon_0 = \frac{-(|a| + |b|) + \sqrt{(|a| + |b|)^2 + 4\varepsilon}}{2}
+        \]
+        Since $4\varepsilon > 0$ then $\sqrt{(|a| + |b|)^2 + 4\varepsilon} > |a| + |b|$ so $\varepsilon_0 > 0$. Now consider that $\varepsilon_0$ is a solution to the quadratic $\varepsilon_0^2 + (|a| + |b|)\varepsilon_0 - \varepsilon = 0$ so $\varepsilon = \varepsilon_0^2 + |a|\varepsilon_0 + |b|\varepsilon_0$. \\
+        Now notice that by definition there exists $N_1, N_2 \in \mathbb{N}$ such that
+        \[
+            n \in \mathbb{N}, n \geq N_1 \implies |a_n - a| < \varepsilon_0
+        \]
+        \[
+            n \in \mathbb{N}, n \geq N_2 \implies |b_n - b| < \varepsilon_0
+        \]
+        So let $N = \max\{N_1, N_2\}$ and consider all $n \in \mathbb{N}$ such that $n \geq N$. Then trivially $n \geq N_1$ and $n \geq N_2$ so
+        \begin{align*}
+            |a_nb_n - ab|
+            &= |a_nb_n - a_nb + a_nb - ab|
+            = |a_n(b_n - b) + b(a_n - a)| \\
+            &\leq |a_n(b_n - b)| + |b(a_n - a)|
+            = |a_n||b_n - b| + |b||a_n - a|| \\
+            &< |a_n|\varepsilon_0 + |b|\varepsilon_0
+            = |a_n - a + a|\varepsilon_0 + |b|\varepsilon_0 \\
+            &\leq |a_n - a|\varepsilon_0 + |a|\varepsilon_0 + |b|\varepsilon_0
+            < \varepsilon_0^2 + |a|\varepsilon_0 + |b|\varepsilon_0
             = \varepsilon
         \end{align*}
     \end{proof}
